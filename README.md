@@ -157,7 +157,9 @@ HIPAA compliant
 
 Use of shipping devices via inked marked devices
 
+### 17\) VPC
 
+5 VPC  / region max
 
 
 
