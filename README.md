@@ -615,7 +615,247 @@ What is AWS Direct Connect?**A**AWS Direct Connect is a network service that pro
 
 AWS Direct Connect is a network service that provides an alternative to using the Internet to utilize AWS cloud services. AWS Direct Connect links your internal network to an AWS Direct Connect location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router. With this connection in place, you can create virtual interfaces directly to the AWS cloud \(for example, to Amazon Elastic Compute Cloud \(Amazon EC2\) and Amazon Simple Storage Service \(Amazon S3\)\) and to Amazon Virtual Private Cloud \(Amazon VPC\), bypassing Internet service providers in your network path. [http://docs.aws.amazon.com/dir...](http://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html)
 
+=======Third attempt======================
 
+\#1ElastiCache
+
+What does Amazon ElastiCache provide?An automated in-memory service**B**An Amazon EC2 instance with the Autocached software pre-installed**C**A managed in-memory cache service**D**A virtual server with a huge amount of cache memory
+
+**Explanation**
+
+Amazon ElastiCache allows you to improve the performance of your application by providing an in-memory cache service for the objects of your database, as it allows you to reduce the retrieval time of your data by avoiding the costly secondary-memory access needed by typical disk-based databases. [http://aws.amazon.com/elastica...](http://aws.amazon.com/elasticache/)
+
+\#10EC2 EBS
+
+An organization has launched a large EC2 instance from an EBS-backed AMI. The organization wants to ensure that even when this instance is terminated, all the critical data will be saved. How can they ensure the EBS volume persists after the instance is terminated?
+
+Migrate all log files from the ephemeral drive to the EBS volume**B**
+
+Set the volume's DeleteOnTermination flag to 'False'**C**
+
+Migrate important data to S3 for higher durability**D**
+
+Take a frequent snapshots of the EBS volume
+
+**Explanation**
+
+AWS provides an on demand, scalable infrastructure. Amazon EC2 allows the user to launch On-Demand instances and the organization should create an AMI of the running instance. If the organization has launched an instance with the EBS root device and an additional ephemeral drive, it is advised that the organization should keep taking a backup of all critical ephemeral data to EBS. The organization should also keep moving important data to S3 for higher durability. In this way even if the application fails the data can be restored. For the EBS backup, the organization should always take a snapshot at regular intervals.
+
+Since the organization is launching an instance with an EBS based root device, by default the DeleteOnTermination flag is set to True. In the present scenario if the instance gets terminated the EBS will also be deleted.  
+**It is recommended to have the flag as False so that when the instance is terminated it will not delete the volume.**     [https://docs.aws.amazon.com/AW...](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination)
+
+\#11EC2
+
+Spot instances are ideally designed for which purpose below?**A**
+
+Backend processing jobs that can withstand interruptions**B**Running long duration and highly transactional applications.**C**For building distributed fault-tolerant databases under a tight deadline.
+
+Managing instances that can scale up and down based on a specific workload.
+
+**Explanation**
+
+There are four general categories of time-flexible and interruption-tolerant tasks that work well with Spot Instances: Delayable tasks, Optional tasks, Tasks that can be sped up by adding additional computing power and at the end, Tasks that require a large number of compute instances that you can't access any other way. [http://aws.amazon.com/ec2/spot...](http://aws.amazon.com/ec2/spot-instances/)
+
+\#22Complete the three definitions:  
+
+
+\_\_\_\_\_\_\_\_\_\_\_ is the process of defining an identity and the verification of that identity
+
+\_\_\_\_\_\_\_\_\_\_\_ determines what resources an identity can access within a system once it has been authenticated.
+
+\_\_\_\_\_\_\_\_\_\_\_ is the method and process of how access is granted to a secure resource.**A**Authorization; Access Control; Authentication**B**Authentication; Authorization; Access Control**C**Authorization; Authentication; Access ControlAuthentication; Access Control; Authorization
+
+**Explanation**
+
+* Authentication: Process of defining an identity and the verification of that identity
+  * Example - username and password
+* Authorisation: Determines what an identity can access within a system once it’s been authenticated to it
+  * Example - An identities permissions to access specific AWS services
+* Access Control: The method and process of how access is granted to a secure resource
+  * Example: Multi-Factor Authentication
+
+ [https://cloudacademy.com/amazo...](https://cloudacademy.com/amazon-web-services/understanding-aws-authentication-authorization-accounting-course/authentication-authorization-and-access-control.html)
+
+\#23AWS General
+
+What does AWS design concept of "loose coupling" mean?**A**To automate system recovery processes**B**To provide an identity only enough access to complete its assigned tasks**C**To design a system that minimizes interdependenciesTo break large data processing tasks into several small, separate tasks
+
+**Explanation**
+
+Loose coupling means that complex applications should be broken down into small, loosely coupled components with as few interdependencies as possible. This way, a change in one component does not cause failures in a cascading manner through other system components. [https://d0.awsstatic.com/white...](https://d0.awsstatic.com/whitepapers/AWS_Cloud_Best_Practices.pdf)
+
+\#24AWS Config
+
+Which of the following tasks can AWS Config help you accomplish?  
+**A**
+
+Track changes of your resources, launch instances more quickly, and automatically delete non-compliant resources**B**
+
+Manage and maintain compliance, gain visibility of your resources, and track changes of your resources
+
+Manage and maintain compliance, gain visibility of your resources, and automatically delete non-compliant resources**D**
+
+Gain visibility of your resources, track changes of your resources, and automatically delete non-compliant resources
+
+**Explanation**
+
+AWS Config can:
+
+* Enforce rules that check the compliance of your resource against specific controls: Predefined and custom rules can be configured within AWS Config, allowing you to check resources compliance against these rules
+* Act as a resource inventory: __AWS Config can discover supported resources running within your environment allowing you to see data about that resource type
+* Store configuration history for individual resources: The service will record and hold all existing changes that have happened against the resource, providing a useful historical record of changes
+
+ [https://cloudacademy.com/amazo...](https://cloudacademy.com/amazon-web-services/introduction-to-aws-config-course/what-is-aws-config.html)
+
+\#28Elastic Beanstalk
+
+You have started to use AWS Elastic Beanstalk to quickly deploy and manage applications in the AWS cloud. You start to wonder if you are being charged for this service. What is AWS's billing policy for AWS Elastic Beanstalk?**A**You pay only for the underlying AWS resources that your application consumes.**B**You pay a one time yearly fee to use it.You pay for the underlying AWS resources your application consumes, along with added data transfer charges to the Elastic Beanstalk service.**D**You pay for the underlying AWS resources your application consumes, as long as they are all in the same availability zone.
+
+**Explanation**
+
+With AWS Elastic Beanstalk, you can quickly deploy and manage applications in the AWS cloud without worrying about the infrastructure that runs those applications. AWS Elastic Beanstalk reduces management complexity without restricting choice or control.
+
+There is no additional charge for AWS Elastic Beanstalk; **you pay only for the underlying AWS resources that your application consumes.** [http://docs.aws.amazon.com/ela...](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html)
+
+\#29AWS General
+
+All AWS customers automatically have around-the-clock access to certain features. Which of the following **is not** one of those?**A**Email response**B**Customer Service**C**Service health checksSupport forums
+
+**Explanation**
+
+All AWS customers automatically have around-the-clock access to the following.
+
+* Customer Service
+* Support forums
+* Service health checks
+* Documentation, whitepapers, and best-practice guides
+
+Client-side diagnostic tools are for Developer-level Support customers.&lt; [http://docs.aws.amazon.com/aws...](http://docs.aws.amazon.com/awssupport/latest/user/getting-started.html)
+
+\#30
+
+Which of the following can help a business compare the costs of on-premises data centers and AWS?AWS Cost Explorer**B**the Total Cost of Ownership \(TCO\) Calculator**C**AWS Budgets**D**AWS Trusted Advisor
+
+**Explanation**
+
+While Cost Explorer, AWS Budgets and Trusted Advisor would be useful to any AWS customer, at any level of customer support, the Total Cost of Ownership \(TCO\) calculator is designed specifically for businesses comparing on-premise data center costs with the AWS cloud. [https://aws.amazon.com/tco-cal...](https://aws.amazon.com/tco-calculator/)
+
+\#32EC2
+
+When scaling Amazon EC2 instances \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_, you are increasing or decreasing the number of instances in use.**A**forward**B**horizontallyvertically**D**backward
+
+**Explanation**
+
+Scaling horizontally is an increase in the quantity of a service resource, an EC2 instance in this case. Scaling vertically would mean to upgrade the power or size of a single resource, which would mean to increase an instance's size in the context of Amazon EC2. [https://d0.awsstatic.com/white...](https://d0.awsstatic.com/whitepapers/AWS_Cloud_Best_Practices.pdf)
+
+\#36AWS General
+
+In AWS, who owns the controls for cloud-deployed infrastructure?AWS controls the physical components of the technology, connection points, and transmissions.**B**AWS controls the physical components of the technology. A customer owns and controls everything else, including control over connection points and transmissions.**C**A customer controls the physical components of the technology, connection points, and transmissions.**D**A customer controls the physical components of the technology. A bucket owner owns and controls everything else, including control over connection points and transmissions.
+
+**Explanation**
+
+For the portion deployed into AWS, AWS controls the physical components of that technology. The customer owns and controls everything else, including control over connection points and transmissions. To help customers better understand what controls are in place and how effectively they are operating, a SOC 1 Type II report is published with controls defined around EC2, S3 and VPC, as well as detailed physical security and environmental controls. These controls are defined at a high level of specificity that should meet most customer needs. AWS customers that have signed a non-disclosure agreement with AWS may request a copy of the SOC 1 Type II report. [http://d0.awsstatic.com/whitep...](http://d0.awsstatic.com/whitepapers/compliance/AWS_Risk_and_Compliance_Whitepaper.pdf)
+
+\#39AWS General
+
+What is the Personal Health Dashboard?**A**A CloudWatch dashboard that shows the status of all CloudWatch alerts you have configured.**B**An AWS account dashboard that shows how AWS service issues may affect systems connected with your AWS account.An AWS webpage that shows the status of all services in all regions and availability zones.**D**A Trusted Advisor dashboard that shows all issues on your account related to best practice checks.
+
+**Explanation**
+
+AWS Personal Health Dashboard provides alerts and remediation guidance when AWS is experiencing events that may impact you. While the Service Health Dashboard displays the general status of AWS services, Personal Health Dashboard gives you a personalized view into the performance and availability of the AWS services underlying your AWS resources.  [https://aws.amazon.com/premium...](https://aws.amazon.com/premiumsupport/phd/)
+
+\#43S3
+
+At what level can Amazon S3 Access Control Lists \(ACLs\) be applied?**A**the bucket level only**B**the bucket and object levelthe bucket, object and account level**D**the object level only
+
+**Explanation**
+
+S3 ACLs allow identities to access specific objects within buckets a different layered approach than bucket policies which are applied at the bucket level only. ACLs allow you to set certain permissions on each object within a specific Bucket.
+
+These ACLs do not follow that same format as the policies defined by IAM and Bucket policies. Instead, they are far less granular, and different permissions can be applied depending if you are applying an ACL at the bucket or object level.  
+ [http://docs.aws.amazon.com/Ama...](http://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html)
+
+\#55AWS WAF
+
+How often does Amazon CloudWatch report metrics for AWS WAF?  
+**A**3 minutes5 minutes**C**10 minutes**D**1 minute
+
+**Explanation**
+
+WAF integrates well with Amazon CloudWatch allowing you to monitor set metrics for the service. WAF CloudWatch metrics are reported in one minute intervals by default.   [http://docs.aws.amazon.com/Ama...](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/waf-metricscollected.html)
+
+\#56Inspector
+
+What is a "rule" in the context of Amazon Inspector?A security goal or objective that you might have for your environment**B**A potential security issue discovered during the Amazon Inspector assessment run**C**A security check that the AWS agent performs during an assessment run**D**A set of conditions that when met in a specific target, this target will be considered for assessment
+
+**Explanation**
+
+In the context of Amazon Inspector, a security check that the agent performs during an assessment run.  [https://docs.aws.amazon.com/in...](https://docs.aws.amazon.com/inspector/latest/userguide/inspector_concepts.html)
+
+\#59Lambda
+
+Lambda functions and \_\_\_\_ are components of AWS Lambda applications.**A**
+
+worker environments
+
+job queues**C**
+
+event sources**D**
+
+reserved instances
+
+**Explanation**
+
+When building applications on AWS Lambda, the core components are Lambda functions and event sources. [http://docs.aws.amazon.com/lam...](http://docs.aws.amazon.com/lambda/latest/dg/building-lambda-apps.html)
+
+\#61AWS General
+
+Which of the following best describes the relationship between regions and Availability Zones?**A**Each region is completely independent and each Availability Zone is isolated, but the Availability Zones in a region are connected through low-latency links.**B**Each region may be dependent on another region, each Availability Zone is isolated, and the Availability Zones in a region are not connected.Each region is completely independent and Availability Zones are never isolated, but the Availability Zones in a region are connected through low-latency links.**D**Each region may be dependent on another region, and each Availability Zone is completely independent.
+
+**Explanation**
+
+Each region is completely independent and each Availability Zone is isolated, but the Availability Zones in a region are connected through low-latency links.  
+
+  
+  [http://docs.aws.amazon.com/AWS...](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)
+
+\#62AWS General
+
+Which choice is a stated benefit of using AWS?**A**reduced effort to meet compliance requirements**B**system compliance is entirely managed by AWS**C**security configuration is entirely managed by AWSdata center servers specifically for your account
+
+**Explanation**
+
+AWS services are designed to comply with common compliance regulations, such as PCI DSS level. You will have to configure services to meet your specific compliance needs, but segments of your IT system on AWS should comply will several standard compliance regulations immediately.  
+
+
+You can request dedicated instances, but you cannot select specific data centers for your account, and with the Shared Responsibility Model, AWS will not assist you in configurations to meet your security or compliance requirements.  
+ [https://d0.awsstatic.com/white...](https://d0.awsstatic.com/whitepapers/aws-overview.pdf)
+
+\#63AWS General
+
+Your manager asks you to change your company's AWS Support level to include use-case guidance \(what AWS products, features, and services to use to best support your specific needs\) and third-party software support. Which support plan is most cost-effective option offering this service?**A**Developer-level support planEnterprise-level support plan**C**Basic-level support plan**D**Business-level support plan
+
+**Explanation**
+
+Business and Enterprise-level Support customers have access to the following listed features:
+
+* Use-case guidance
+* AWS Identity and Access Management \(IAM\) for controlling individuals' access to AWS Support
+* AWS Trusted Advisor
+* An API for interacting with Support Center and Trusted Advisor
+* Third-party software support
+
+ [http://docs.aws.amazon.com/aws...](http://docs.aws.amazon.com/awssupport/latest/user/getting-started.html)
+
+\#65
+
+An organization has setup consolidated billing with 3 different AWS accounts. Which of the below mentioned advantages will organization receive in terms of the AWS pricing?**A**lower prices for services where volume pricing tiers are available.**B**The consolidated billing does not bring any cost advantage for the organizationThe free usage tier for all the 3 accounts will be 3 years and not a single year**D**
+
+The EC2 instances of each account will receive a total of 750\*3 micro instance hours free
+
+**Explanation**
+
+For billing purposes, AWS treats all the accounts in the organization as if they were one account. Some services, such as Amazon EC2 and Amazon S3, have volume pricing tiers across certain usage dimensions that give you lower prices the more you use the service. With consolidated billing, AWS combines the usage from all accounts to determine which volume pricing tiers to apply, giving you a lower overall price whenever possible. AWS then allocates each member account a portion of the overall volume discount based on the account's usage. [http://docs.aws.amazon.com/aws...](http://docs.aws.amazon.com/awsaccountbilling/latest/about/consolidatedbilling.html)
 
 
 
