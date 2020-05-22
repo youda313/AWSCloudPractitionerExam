@@ -857,5 +857,186 @@ The EC2 instances of each account will receive a total of 750\*3 micro instance 
 
 For billing purposes, AWS treats all the accounts in the organization as if they were one account. Some services, such as Amazon EC2 and Amazon S3, have volume pricing tiers across certain usage dimensions that give you lower prices the more you use the service. With consolidated billing, AWS combines the usage from all accounts to determine which volume pricing tiers to apply, giving you a lower overall price whenever possible. AWS then allocates each member account a portion of the overall volume discount based on the account's usage. [http://docs.aws.amazon.com/aws...](http://docs.aws.amazon.com/awsaccountbilling/latest/about/consolidatedbilling.html)
 
+======================4th attempt===========================================
 
+When using Amazon Glacier's standard retrieval option, which of the following statements is correct?**A**Amazon Glacier takes 5-12 hours to retrieve data.Amazon Glacier takes 5 minutes to retrieve data.**C**Amazon Glacier takes 3-5 hours to retrieve data.**D**Amazon Glacier 1 hour to retrieve data.
+
+**Explanation**
+
+Amazon Glacier is an extremely low-cost storage service that provides secure and durable storage for data archiving and backup. To keep costs low, Amazon Glacier is optimized for data that is infrequently accessed and for which retrieval times of several hours are suitable. The standard retrieval option, which is the default option, takes 3-5 hours to complete. The other options are expedited, which downloads a small amount of data \(250 MB maximum\) in 5 minutes, and bulk, which downloads large amounts of data \(petabytes\) in 5-12 hours. [https://docs.aws.amazon.com/am...](https://docs.aws.amazon.com/amazonglacier/latest/dev/downloading-an-archive-two-steps.html#api-downloading-an-archive-two-steps-retrieval-options)
+
+\#17AS
+
+Auto Scaling provides which of the following benefits for your application?**A**Your application gains better fault tolerance.Your application reduces its latency in delivering content to a global market.**C**Your application and IT staff are held to compliance requirements you have set.**D**You acquire clarity on prototypes in your application.
+
+**Explanation**
+
+When you use Auto Scaling, your applications gain better fault tolerance. Auto Scaling can detect when an instance is unhealthy, terminate it, and launch an instance to replace it. You can also configure Auto Scaling to use multiple Availability Zones. If one Availability Zone becomes unavailable, Auto Scaling can launch instances in another one to compensate. [http://docs.aws.amazon.com/Aut...](http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/how-as-works.html)
+
+\#19AWS General
+
+Your company wants you to ensure that AWS provides management business reviews as part of its support plan. Which of the following support levels should you choose to make sure that this is included?**A**Developer-level SupportBusiness-level Support**C**Customer-level Support**D**Enterprise-level Support
+
+**Explanation**
+
+**Enterprise-level Support** customers have access to the following features:
+
+* White-glove case routing
+* **Management business reviews**
+* Application architecture guidance
+* Infrastructure event management
+* AWS Concierge
+* Technical account manager
+
+ [http://docs.aws.amazon.com/aws...](http://docs.aws.amazon.com/awssupport/latest/user/getting-started.html)
+
+\#24SQS AWS General
+
+\_\_\_\_\_\_\_\_\_ is a fast, reliable, scalable, fully managed message queuing service.**A**Amazon SQS**B**Amazon SES**C**AWS Data PipelineAmazon SNS
+
+**Explanation**
+
+Amazon Simple Queue Service \(SQS\) is a fast, reliable, scalable, fully managed message queuing service. SQS makes it simple and cost-effective to decouple the components of a cloud application.
+
+1. Decoupling the components of an application – You have a queue of work items and want to track the successful completion of each item independently. Amazon SQS tracks the ACK/FAIL results, so the application does not have to maintain a persistent checkpoint or cursor. After a configured visibility timeout, Amazon SQS deletes acknowledged messages and redelivers failed messages.
+2. Configuring individual message delay – You have a job queue and you need to schedule individual jobs with a delay. With standard queues, you can configure individual messages to have a delay of up to 15 minutes. 
+3. Dynamically increasing concurrency or throughput at read time – You have a work queue and want to add more consumers until the backlog is cleared. Amazon SQS requires no pre-provisioning.
+4. Scaling transparently – You buffer requests and the load changes as a result of occasional load spikes or the natural growth of your business. Because Amazon SQS can process each buffered request independently, Amazon SQS can scale transparently to handle the load without any provisioning instructions from you. 
+
+ [http://aws.amazon.com/sqs/](http://aws.amazon.com/sqs/)
+
+\#25AWS General
+
+In AWS, when is Developer-level tier technical support available?**A**Monday - Saturday, 8am to 5pm in the customer time zone**B**Monday - Friday 8am to 6pm in the customer time zoneEvery day 8am to 6pm in the customer time zone.**D**Monday - Friday 9am to 9pm in the customer time zone
+
+**Explanation**
+
+In AWS support, Developer-level tier offers support via email Monday through Friday 8 a.m. to 6 p.m. in the customer time zone. [https://aws.amazon.com/premium...](https://aws.amazon.com/premiumsupport/compare-plans/)
+
+\#40ELB
+
+Can ELB load balancers span across multiple regions?**A**
+
+Yes, load balancers can span across regions globally but not across multiple Availability Zones.**B**
+
+No, load balancers can only be within a single Availability Zone.**C**
+
+No, but load balancers can span across Availability Zones in the same region.
+
+Yes, load balancers can span across regions globally.
+
+**Explanation**
+
+The Load Balancer is the destination to which all requests intended for your load-balanced application should be directed. Each Load Balancer can distribute requests to multiple EC2 instances. A Load Balancer is represented by a DNS name and a set of ports. Load Balancers can span multiple Availability Zones within an EC2 Region, but they cannot span multiple regions. [https://s3-ap-southeast-1.amaz...](https://s3-ap-southeast-1.amazonaws.com/awsmylabs/html/scale_the_application.html)
+
+\#44CloudTrailWhich other AWS service can you use to enable greater security of your CloudTrail log files?  
+Amazon CloudWatch**B**AWS Key Management Service \(KMS\)**C**Amazon S3**D**Amazon Simple Notification Service \(SNS\)
+
+**Explanation**
+
+The use of AWS KMS is an optional element of CloudTrail, but it allows additional encryption to be added to your Log files when stored on S3  
+ [http://docs.aws.amazon.com/kms...](http://docs.aws.amazon.com/kms/latest/developerguide/services-cloudtrail.html)
+
+\#50EC2 AWS General
+
+Pricing is \_\_\_\_ consumed for EC2 instances.**A**either per instance-second or per instance-hour**B**per instance-hour only**C**per instance-minute onlyeither per instance-minute or instance-hour
+
+**Explanation**
+
+In AWS, you pay only for what you use.
+
+EC2 pricing is per instance-second consumed, or per instance-hour consumed depending on the instance type and operating system for the AMI. For example, spot instances, reserved instances and on-demand instances are billed per-second, while Dedicated instances are billed per hour. Linux instances can be billed per second, but Microsoft Windows instances are billed per hour.   
+ [https://aws.amazon.com/blogs/a...](https://aws.amazon.com/blogs/aws/new-per-second-billing-for-ec2-instances-and-ebs-volumes/)
+
+\#52VPC
+
+Which choice below is an advantage of using a Virtual Private Cloud \(VPC\)?**A**You can block subnets.**B**You do not need IP addresses.You do not require high-level understanding of public network security issues.**D**You can configure routing and access control lists.
+
+**Explanation**
+
+Amazon RDS lets you use the Amazon Virtual Private Cloud \(VPC\) service to create a virtual private cloud where you can launch a DB instance. When you use a virtual private cloud, you have control over your virtual networking environment: you can select your own IP address range, create subnets, and configure routing and access control lists. [http://docs.aws.amazon.com/Ama...](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.RDSVPC.html)
+
+\#55Elastic Beanstalk
+
+You are reviewing AWS Elastic Beanstalk and considering how it can support versions of an application. Which statement below is correct?**A**
+
+AWS Elastic Beanstalk can store unlimited application versions, but only one application version can run at a time.
+
+The number of application versions you can run simultaneously depends on which environment type you select.**C**
+
+AWS Elastic Beanstalk allows one version of an application to run at a time.**D**
+
+AWS Elastic Beanstalk allows you to run multiple versions of an application at the same time.
+
+**Explanation**
+
+AWS Elastic Beanstalk is designed to support multiple running environments such as one for integration testing, one for pre-production, and one for production. Each environment is independently configured and runs on its own separate AWS resources. [https://aws.amazon.com/elastic...](https://aws.amazon.com/elasticbeanstalk/faqs/)
+
+\#56AWS General
+
+After you enable Cost Explorer in the Billing and Cost Management console, which of the following best describes the procedure that AWS uses to prepare the data about your costs? AWS calculates data handling costs for the last three months, and then it calculates the forecast for the next three months.**B**AWS calculates the forecast for the next three months based on the data usage for the current month.**C**AWS calculates the forecast for the next six months based on AWS's data usage prediction wizard.**D**
+
+AWS prepares the data about your costs for the current month and the last three months, and then it calculates the forecast for the next three months.
+
+**Explanation**
+
+After you enable Cost Explorer in the Billing and Cost Management console, AWS prepares the data about your costs for the current month and the last three months, and then calculates the forecast for the next three months. The current month's data is available for viewing in about 24 hours. The rest of your data takes a few days longer. Cost Explorer updates your cost data at least once every 24 hours.
+
+  [http://docs.aws.amazon.com/aws...](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-explorer-signup.html)
+
+\#57Glacier
+
+A user is uploading a backup of data to S3 Glacier for the purpose of disaster recovery \(DR\). The data stored in S3 Glacier is part of a larger data recovery plan that involves other AWS services.
+
+There is a relatively small set of data \(100 MB\) that needs to be restored immediately when a DR plan is executed, and the organization is planning RTO of 1 hour.  Assuming the data size meets the requirements for any of the given retrieval options below, which S3 Glacier data retrieval option would you plan in a DR situation?**A**Use Standard retrievals**B**Use Bulk retrievals
+
+Use Expedited retrievals without Provisioned Capacity**D**
+
+Use Expedited Retrievals with Provisioned Capacity
+
+**Explanation**
+
+There are three retrieval options with Amazon S3 Glacier:
+
+* Expedited — There are two types of Expedited retrievals: On-Demand and Provisioned. On-Demand requests are similar to EC2 On-Demand instances and are available most of the time. Provisioned requests are guaranteed to be available when you need them, which is recommended for a DR plan.
+* Standard — Standard retrievals allow you to access any of your archives within several hours. 
+* Bulk — Bulk retrievals are Amazon S3 Glacier’s lowest-cost retrieval option, which you can use to retrieve large amounts, even petabytes, of data inexpensively in a day. Bulk retrievals typically complete within 5–12 hours.
+
+ [http://docs.aws.amazon.com/ama...](http://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html)
+
+\#59AWS General
+
+You have been asked to perform some penetration testing on your company's AWS infrastructure. However, you are not sure who is responsible for this.
+
+Which statement describing the AWS policy regarding penetration testing is correct?**A**
+
+You need to employ a third-party specialist to do the testing.**B**
+
+AWS needs to perform the penetration tests.
+
+You can always perform pentration testing with no prior AWS approval.**D**The information you share with AWS as part of this process is kept confidential within AWS.
+
+**Explanation**
+
+There are several important things to note about penetration testing requests:
+
+* Permission may be required for penetration testing, depending on which AWS services are in use.
+* To request permission, you must be logged into the AWS portal using the root credentials associated with the instances you wish to test, otherwise the form will not pre-populate correctly. 
+
+ [http://aws.amazon.com/security...](http://aws.amazon.com/security/penetration-testing/)
+
+\#61AWS ConfigWhich statement is true about AWS Config and regions?  
+**A**AWS Config is not enabled at a regional level.AWS Config is a global service, once enabled it will work across all supported regions automatically.**C**AWS Config can only be used in one region at a time.**D**AWS Config is a region-specific service, meaning it has to be configured in every region you wish to use it.
+
+**Explanation**
+
+AWS Config is region-specific, meaning that if you have resources in multiple regions, then you will have to configure AWS Config for each Region you want to record resource changes. When doing so, you can specify different options for each Region. For example, you could configure Config in one Region to record all supported resources across all services within that Region, and add a predefined AWS Managed Config rule that will check if EBS volumes are encrypted**.** In another region, you could select only to record a specific type of resource, such as Security Groups with no predefined rules allocated. [http://docs.aws.amazon.com/con...](http://docs.aws.amazon.com/config/latest/developerguide/gs-console.html)
+
+\#63EC2
+
+Dedicated EC2 instances are instances that \_\_\_\_\_\_\_\_\_\_.**A**run in a VPC on hardware that's dedicated to a single customerhave no shared services installed on them**C**are deployed to run a dedicated function**D**only you can access
+
+**Explanation**
+
+Dedicated EC2 instances are instances that run on dedicated hardware. [https://aws.amazon.com/ec2/pur...](https://aws.amazon.com/ec2/purchasing-options/dedicated-instances/)
 
