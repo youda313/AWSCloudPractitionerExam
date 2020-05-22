@@ -383,7 +383,237 @@ You are implementing Amazon CloudWatch for monitoring of your AWS infrastructure
 
 You can use an alarm to automatically initiate actions on your behalf. An alarm watches a single metric over a specified time period, and performs one or more specified actions, based on the value of the metric relative to a threshold over time. Alarms invoke actions for sustained state changes only. CloudWatch alarms will not invoke actions simply because they are in a particular state. The state must have changed and been maintained for a specified number of periods. [http://docs.aws.amazon.com/Ama...](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html)
 
+=======================2nd attempt mock exam==================
 
+\#1Lambda
+
+With AWS Lambda, you pay for \_\_\_\_.**A**networking capacity by the hour**B**compute time that you consume**C**storage capacity you usenumber of compute resources you use
+
+**Explanation**
+
+You pay only for the compute time you consume – there is no charge when your code is not running. [http://docs.aws.amazon.com/lam...](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
+
+\#5AWS General
+
+What AWS cloud characteristic makes a resource almost immediately available to allocate when and where you need it?**A**
+
+on-demand resourcing**B**high availability**C**economy of scaleelasticity
+
+**Explanation**
+
+On-demand resourcing provides you with the ability to provision resources within seconds and minutes, instead of days or weeks that it may take within an on-premise environment, especially if you had to order the additional hardware first. For example, if you had a server in AWS and its CPU utilization was steadily increasing with demand, you would be able to deploy a second server, which would be ready within minutes to take some of the load off of the first. [https://d0.awsstatic.com/white...](https://d0.awsstatic.com/whitepapers/aws-overview.pdf)
+
+\#7IAM
+
+\_\_\_\_\_\_\_\_\_\_\_ are predefined, out-of-the-box policies that grant permissions for common use cases to eliminate the need to determine what permissions are needed.
+
+Customer managed policies**B**
+
+Inline policies**C**
+
+AWS managed policies**D**
+
+Resource policies
+
+**Explanation**
+
+AWS managed policies are predefined by AWS, and grant permissions for common use cases so you can avoid having to determine what permissions are needed. For ElastiCache, AWS provides the following managed policies: AmazonElastiCacheReadOnlyAccess and AmazonElastiCacheFullAccess. [http://docs.aws.amazon.com/Ama...](http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/IAM.IdentityBasedPolicies.html)
+
+\#8AWS WAF
+
+Which AWS service does AWS WAF primarily use to aid with automation?  
+Amazon S3**B**AWS Trusted Advisor**C**AWS Config**D**AWS Lambda
+
+**Explanation**
+
+With so many AWS services developing and becoming integrated with more automated components, the same can be said for AWS WAF. Using built-in features and existing services of AWS, a solution can be created that can automatically modify your Web ACLs to improve both its security and efficiency benefits. This is primarily through the use of another AWS service, that being AWS Lambda [http://www.slideshare.net/Amaz...](http://www.slideshare.net/AmazonWebServices/using-aws-waf-and-lambda-for-automatic-protection)
+
+\#10VPC
+
+Network ACLs in a VPC operate at the \_\_\_\_\_\_.TCP level**B**gateway level**C**instance level**D**subnet level
+
+**Explanation**
+
+Security Groups in VPC operate at the instance level, providing a way to control the incoming and outgoing instance traffic. In contrast, network ACLs operate at the subnet level, providing a way to control the traffic that flows through the subnets of your VPC. [http://docs.aws.amazon.com/Ama...](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Security.html)
+
+\#13AWS General
+
+You have sensitive data stored on AWS that is no longer needed, and you intend to delete it. When you ask AWS to delete the data in the cloud, what is the standard procedure they'll follow?
+
+AWS decommissions the underlying physical media, and storage blocks are marked as unallocated.**B**AWS decommissions the underlying physical media, and storage blocks are marked as allocated.**C**
+
+AWS does not decommission the underlying physical media; instead, the storage blocks are marked as unallocated.**D**AWS does not commission the underlying physical media or mark the storage blocks as unallocated.
+
+**Explanation**
+
+You decommission data differently in the cloud than you do in traditional on-premises environments. When you ask AWS to delete data in the cloud, **AWS does not decommission the underlying physical media**; instead, the storage blocks are marked as unallocated. AWS uses secure mechanisms to reassign the blocks elsewhere. When you provision block storage, the hypervisor or virtual machine manager \(VMM\) keeps track of which blocks your instance has written to. When an instance writes to a block of storage, the previous block is zeroed out, and then overwritten with your block of data. If your instance attempts to read from a block previously written to, your previously stored data is returned. If an instance attempts to read from a block it has not previously written to, the hypervisor zeros out the previous data on disk and returns a zero to the instance. When AWS determines that media has reached the end of its useful life, or it experiences a hardware fault, AWS follows the techniques detailed in Department of Defense \(DoD\) 5220.22-M \(“National Industrial Security Program Operating Manual”\) or NIST SP 800-88 \(“Guidelines for Media Sanitization”\) to destroy data as part of the decommissioning process. [https://d1.awsstatic.com/white...](https://d1.awsstatic.com/whitepapers/aws-security-best-practices.pdf)
+
+\#14AWS General
+
+In regards to disaster recovery, what is a recovery point objective \(RPO\)?**A**It is the acceptable amount of data loss measured in time.The time it takes after a disruption to restore a system to its service level.**C**The time it takes to scale a functioning resource horizontally to adapt to increased demand.**D**The time it takes to scale a functioning resource vertically to adapt to increased demand.
+
+**Explanation**
+
+The recovery point objective \(RPO\) is the amount of acceptable data loss measured in time. For example, a transactional business cannot afford a great deal of data loss, so its RPO is likely less than one hour because an hour is a great expense in terms of data loss. However, for a more isolated website with minimal customer interaction, an RPO of a day may be acceptable because this represents a tolerable amount of data loss. [https://d1.awsstatic.com/white...](https://d1.awsstatic.com/whitepapers/Storage/Backup_and_Recovery_Approaches_Using_AWS.pdf)
+
+\#20AWS General
+
+Which of the following best describes a forecast in AWS billing account using Cost Explorer?**A**
+
+A prediction of your AWS usage for up to the next 30 days
+
+A prediction of your AWS usage for up to the next year**C**
+
+A prediction of your AWS usage for up to the next six months**D**
+
+A prediction of your AWS usage for up to the next three months
+
+**Explanation**
+
+With reference to forecasting with Cost Explorer in your AWS billing account, a forecast is a prediction of how much you will use AWS over the next three months, based on your past usage. Forecasting provides an estimate of what your AWS bill will be, which then enables you to use alarms and budgets for amounts that you are predicted to use, and because forecasts are predictions, the forecasted billing amounts are estimated, and might differ from your actual charges for each statement period. [http://docs.aws.amazon.com/aws...](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-forecast.html)
+
+\#22CloudWatch
+
+Which of the following is true of Amazon CloudWatch?None of these are true.**B**Amazon CloudWatch monitors Amazon Web Services \(AWS\) resources and the applications that run on AWS in real-time.**C**Amazon CloudWatch runs code without provisioning or managing servers.**D**Amazon CloudWatch is a web service that gives businesses an easy and cost-effective way to distribute content with low latency and high data transfer speeds.
+
+**Explanation**
+
+Amazon CloudWatch monitors your Amazon Web Services \(AWS\) resources and the applications you run on AWS in real-time.
+
+You can use CloudWatch to collect and track metrics, which are variables you can measure for your resources and applications. CloudWatch alarms send notifications or automatically make changes to the resources you are monitoring based on rules that you define. 
+
+For example, you can monitor the CPU usage and disk reads and writes of your Amazon EC2 instances and then use this data to determine whether you should launch additional instances to handle an increased load. You can also use this data to stop under-used instances to save money. In addition to monitoring the built-in metrics that come with AWS, you can monitor your own custom metrics. With CloudWatch, you gain system-wide visibility into resource utilization, application performance, and operational health.  
+ [http://docs.aws.amazon.com/Ama...](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html)
+
+\#24Inspector
+
+In order for Amazon Inspector to access your EC2 instances and collect the assessment data, \_\_\_\_\_\_\_\_.**A**Amazon Inspector always runs with admin permissions and has access to EC2 instances by default unless you revoke the permissions**B**you have to select the KeyPair associated with your EC2 instance while configuring Amazon Inspector**C**you have to create an IAM role and associate it with Amazon Inspectorassessment data is pushed to Inspector by AWS agent, no roles needed
+
+**Explanation**
+
+As a pre-requisite to Amazon Inspector, an IAM role has to be created and associated with Inspector. The role must allow Inspector to ec2:describeInstances  [https://docs.aws.amazon.com/in...](https://docs.aws.amazon.com/inspector/latest/userguide/inspector_settingup.html)
+
+\#26KMS
+
+How is Key Management Service \(KMS\) priced?**A**KMS is priced per data encryption keys; you are charged for the number of individual data keys maintained in KMS.**B**KMS is priced per customer master key and the number of requests received per month.**C**KMS is priced per number of encryption/decryption requests received from all services per month.KMS is priced per customer master key; you are charged for the number of master keys maintained in KMS.
+
+**Explanation**
+
+KMS is priced per two factors: the number of Customer Master Keys maintained in KMS and the number of requests received within a month. [https://cloudacademy.com/amazo...](https://cloudacademy.com/amazon-web-services/amazon-web-services-key-management-service-kms-course/key-management-service-basics.html)
+
+\#30AWS General
+
+Which disaster recovery method generally has the highest RTO and RPO, but requires the least cost, in terms of resources, to restore service?Warm standby**B**Multi-site**C**Pilot light**D**Backup and restore
+
+**Explanation**
+
+With the backup and restore method of recovery, data is backed up to an AWS storage service, such as Amazon S3. The data can be imported into AWS using a variety of options such as storage gateway, AWS Snowball \(import/export\), Direct Connect, VPN or the internet. In the event of a disaster, archives can be recovered from Amazon S3, and the data can then be restored directly to cloud resources. This method takes the longest time, but requires the least investment because it is essentially a system of archiving data consistently and retrieving it when needed. Aside from data transfer and storage, no complex applications or smaller version of your service needs to be kept running offsite. [https://d1.awsstatic.com/white...](https://d1.awsstatic.com/whitepapers/aws-disaster-recovery.pdf)
+
+\#33Cognito
+
+What types of identities do Amazon Cognito identity pools support?**A**They support only unauthenticated identities.**B**They support both authenticated and unauthenticated identities.They support only authenticated identities.**D**They support neither authenticated nor unauthenticated identities.
+
+**Explanation**
+
+Amazon Cognito identity pools support both authenticated and unauthenticated identities.
+
+Authenticated identities belong to users who are authenticated by a public login provider or your own backend authentication process. Unauthenticated identities typically belong to guest users. [http://docs.aws.amazon.com/cog...](http://docs.aws.amazon.com/cognito/devguide/identity/identity-pools/)
+
+\#36KMS
+
+You can use AWS KMS customer master keys \(CMKs\) to encrypt \_\_\_\_ through AWS CloudTrail's server-side encryption, rather than using the default S3-managed keys.**A**passwords**B**blob datakey pairs**D**log files
+
+**Explanation**
+
+You can use AWS CloudTrail to record AWS API calls and other activity for your AWS account and to save the recorded information to log files in an Amazon Simple Storage Service \(Amazon S3\) bucket that you choose. By default, the log files delivered by CloudTrail to your S3 bucket are encrypted using server-side encryption with Amazon S3–managed encryption keys \(SSE-S3\). But you can choose instead to use server-side encryption with AWS KMS–managed keys \(SSE-KMS\). [http://docs.aws.amazon.com/kms...](http://docs.aws.amazon.com/kms/latest/developerguide/services-cloudtrail.html)
+
+\#37CloudWatch
+
+Which service sends alerts from CloudWatch?**A**Amazon SNSAmazon SQS**C**Amazon EBS**D**Amazon SES
+
+**Explanation**
+
+AWS Auto Scaling and Simple Notification Service \(SNS\) work in conjunction with CloudWatch. You use Amazon SNS with CloudWatch to send messages when an alarm threshold has been reached. [http://docs.aws.amazon.com/Ama...](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/related_services.html)
+
+\#40EC2
+
+Why is each Amazon region designed to be completely isolated from other Amazon regions?**A**
+
+To reduce the operational costs**B**
+
+To maximize fault tolerance and stability**C**
+
+To provide low latency connections
+
+To provide better security
+
+**Explanation**
+
+Each Amazon region is designed to be completely isolated from the other Amazon regions. This achieves the greatest possible fault tolerance and stability. [http://docs.aws.amazon.com/AWS...](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)
+
+\#47
+
+When scaling \_\_\_\_\_\_\_\_ you are altering the power of an instance, perhaps using one with greater CPU power to scale.  
+forward**B**up and down**C**backward**D**in and out
+
+**Explanation**
+
+To scale an instance or resource up or down, you are effectively changing the power of that resource, essentially making it more powerful or making it weaker.  
+ [https://cloudacademy.com/cloud...](https://cloudacademy.com/cloud-computing/should-your-business-move-to-the-cloud-course/is-the-cloud-right-for-you.html)
+
+\#51EBS
+
+By default, the data that is stored on an attached non-root Amazon EBS volume will persist \_\_\_\_\_\_\_.until the instance is terminated**B**until the instance reboots**C**after an instance is terminated**D**until the instance is stopped
+
+**Explanation**
+
+The data stored on a local instance store will persist only as long as that instance is running. However, data that is stored on an Amazon EBS volume will persist independently of the life of the instance. You can modify the **deleteontermination** setting to change this if so desired. [https://aws.amazon.com/ec2/faq...](https://aws.amazon.com/ec2/faqs/)
+
+\#59
+
+Which description of a Recovery Time Objective \(RTO\) is correct?**A**
+
+It is the maximum acceptable amount of time a system can be offline.**B**
+
+It is the maximum acceptable amount of income loss measured in transactions.**C**
+
+It is the maximum acceptable amount of data loss measured in time.
+
+It is the minimum amount of data loss before a system can fully recover measured in time.
+
+**Explanation**
+
+A recovery time objective \(RTO\) is the maximum acceptable time to restore system service after a disruption, while a recovery point objective \(RPO\) is the maximum acceptable amount of data loss measured in time. The two concepts are interrelated. The amount of data loss a business can tolerate usually determines the desired recovery time objective. The desired RTO then generally determines the disaster recovery method. [https://en.wikipedia.org/wiki/...](https://en.wikipedia.org/wiki/Recovery_point_objective)
+
+\#61AWS General
+
+Which of the following is an AWS security best practice?To design for failure**B**Applying the principle of mechanical sympathy**C**Applying the principle of least privilege**D**To democratize advanced technologies
+
+**Explanation**
+
+Applying the 'principle of least privilege' is a security best practice that essentially focuses on only granting the level of access an identity requires to perform its role. This also looks at how to prevent and eliminate identities with long-term credentials. [https://d1.awsstatic.com/white...](https://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf)
+
+\#62AWS General
+
+When using the AWS Billing and Cost Management console dashboard, you can check various graphs that show different breakdowns of your AWS usage. Which of the following graphs can you check on your dashboard?**A**Month-to-Date Top Services by Spend**B**Month-to-Date Spend by Service**C**All of theseSpend Summary
+
+**Explanation**
+
+On the Amazon Web Services \(AWS\) Billing and Cost Management console dashboard, you can view the following graphs:
+
+* Spend Summary
+* Month-to-Date Spend by Service
+* Month-to-Date Top Services by Spend  
+
+ [http://docs.aws.amazon.com/aws...](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/view-billing-dashboard.html)
+
+\#64Direct Connect
+
+What is AWS Direct Connect?**A**AWS Direct Connect is a network service that provides an alternative to using the Internet to utilize AWS cloud services.**B**AWS Direct Connect is a flexible, low-latency service that lets you stream resource intensive applications and games from the cloud.AWS Direct Connect is a highly available and scalable DNS service designed to give developers and businesses an extremely reliable and cost-effective way to route end users to Internet applications.**D**AWS Direct Connect is a web service that gives businesses and web application developers an easy and cost-effective way to distribute content with low latency and high data transfer speeds.
+
+**Explanation**
+
+AWS Direct Connect is a network service that provides an alternative to using the Internet to utilize AWS cloud services. AWS Direct Connect links your internal network to an AWS Direct Connect location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router. With this connection in place, you can create virtual interfaces directly to the AWS cloud \(for example, to Amazon Elastic Compute Cloud \(Amazon EC2\) and Amazon Simple Storage Service \(Amazon S3\)\) and to Amazon Virtual Private Cloud \(Amazon VPC\), bypassing Internet service providers in your network path. [http://docs.aws.amazon.com/dir...](http://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html)
 
 
 
